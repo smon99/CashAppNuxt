@@ -14,6 +14,11 @@
             class="rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 mt-4">
       Guthaben mit PayPal aufladen
     </button>
+    <br>
+    <button type="button"
+            class="rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 mt-4">
+      Transaktionen einsehen
+    </button>
   </div>
 </template>
 <script setup lang="ts">

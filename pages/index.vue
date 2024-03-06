@@ -9,7 +9,7 @@
       <user-card>
       </user-card>
 
-      <div class="flex justify-start mt-48">
+      <div class="flex justify-end mt-12">
         <contacts-preview>
         </contacts-preview>
       </div>
