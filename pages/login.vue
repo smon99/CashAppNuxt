@@ -2,10 +2,7 @@
 import {ref} from 'vue';
 import useAuthentication from '~/composables/user/useAuthentication';
 
-const email = ref('');
-const password = ref('');
-const errorMessage = useAuthentication().errorMessage;
-const submitForm = useAuthentication().submitForm;
+const {email, password, errorMessage, submitForm} = useAuthentication()
 
 definePageMeta({
   layout: 'default'
