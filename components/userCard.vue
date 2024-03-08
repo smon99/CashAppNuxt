@@ -1,27 +1,34 @@
 <template>
-  <div class="flex justify-end">
+  <div class="flex">
 
-    <div class="flex items-center">
+    <div class="flex items-center mr-8">
       Guthaben: 57,84€
     </div>
 
     <div class="flex justify-center ml-4">
-      <div class="flex items-center">
-        <h3 class="text-base font-semibold leading-6 text-gray-900">
-          angemeldet als: Simon
-        </h3>
+      <div class="flex items-center mr-8">
+        <a href="#" class="group block flex-shrink-0">
+          <div class="flex items-center">
+            <div>
+              <img class="inline-block h-9 w-9 rounded-full"
+                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                   alt=""/>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Tom Cook</p>
+              <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
+            </div>
+          </div>
+        </a>
       </div>
 
-      <div class="flex items-center ml-4">
-        <button type="button"
-                class="relative inline-flex items-center rounded-md bg-[#38b6ff] px-3 py-2 font-semibold text-black shadow-sm hover:bg-indigo-500">
-          abmelden
-        </button>
-      </div>
+      <arrow-right-start-on-rectangle-icon class="btn btn-secondary flex ml-4 w-16">
+      </arrow-right-start-on-rectangle-icon>
+
     </div>
-
   </div>
 </template>
 
 <script setup lang="ts">
+import {ArrowRightStartOnRectangleIcon} from "@heroicons/vue/24/outline";
 </script>

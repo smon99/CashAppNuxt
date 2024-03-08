@@ -5,7 +5,7 @@ import useAuthentication from '~/composables/user/useAuthentication';
 const {email, password, errorMessage, submitForm} = useAuthentication()
 
 definePageMeta({
-  layout: 'default'
+  layout: 'login'
 });
 </script>
 
