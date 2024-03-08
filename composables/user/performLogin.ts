@@ -1,6 +1,6 @@
 import {ref} from 'vue';
 
-export default function useAuthentication() {
+export default function performLogin() {
     const email = ref('');
     const password = ref('');
     const errorMessage = ref('');
@@ -16,20 +16,9 @@ export default function useAuthentication() {
         };
 
         try {
-            const response = await fetch('http://localhost:8000/api/login', requestOptions);
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                new Error(errorData.message || 'Failed to login');
-            }
-
-            const data = await response.json();
-            if (!data.token) {
-                new Error('Token not found in response');
-            }
-
+            const response = await fetch('http://localhost:8000/api/login', requestOptions)
         } catch (error) {
-            errorMessage.value = 'An error occurred. Please try again.';
+            errorMessage.value = 'same shit different project';
         }
     };
 

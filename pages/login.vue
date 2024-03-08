@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-import useAuthentication from '~/composables/user/useAuthentication';
+import performLogin from '~/composables/user/performLogin';
 
-const {email, password, errorMessage, submitForm} = useAuthentication()
+const {email, password, errorMessage, submitForm} = performLogin();
 
 definePageMeta({
   layout: 'login'
