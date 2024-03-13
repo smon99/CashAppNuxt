@@ -15,11 +15,16 @@ export default function performLogin() {
             }),
         };
 
-        try {
-            const response = await fetch('http://localhost:8000/api/login', requestOptions)
-        } catch (error) {
-            errorMessage.value = 'same shit different project';
-        }
+        const response = await fetch('http://localhost:8000/api/login', requestOptions)
+
+        const data = await response.json();
+
+        const tokenCookie = useCookie('token', {
+            maxAge: 3600,
+            secure: true,
+            sameSite: true,
+        })
+        tokenCookie.value = data.token
     };
 
     return {

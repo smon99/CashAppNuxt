@@ -1,8 +1,14 @@
+<script setup lang="ts">
+import {ArrowRightStartOnRectangleIcon} from "@heroicons/vue/24/outline";
+import getStats from "~/middleware/getStats";
+
+const {username, balance} = getStats();
+</script>
+
 <template>
   <div class="flex">
-
     <div class="flex items-center mr-8">
-      Guthaben: 57,84€
+      Guthaben: {{ balance }}€
     </div>
 
     <div class="flex justify-center ml-4">
@@ -15,7 +21,7 @@
                    alt=""/>
             </div>
             <div class="ml-3">
-              <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Tom Cook</p>
+              <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">{{ username }}</p>
               <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
             </div>
           </div>
@@ -24,11 +30,6 @@
 
       <arrow-right-start-on-rectangle-icon class="btn btn-secondary flex ml-4 w-16">
       </arrow-right-start-on-rectangle-icon>
-
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import {ArrowRightStartOnRectangleIcon} from "@heroicons/vue/24/outline";
-</script>

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
   <div class="w-full h-full grid grid-cols-2 justify-items-start items-end">
 
@@ -31,6 +35,3 @@
   </div>
 
 </template>
-
-<script setup lang="ts">
-</script>
