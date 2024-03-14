@@ -14,10 +14,6 @@ export async function getStats() {
             body: JSON.stringify({})
         });
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch data');
-        }
-
         const data = await response.json();
 
         const username = data.username;

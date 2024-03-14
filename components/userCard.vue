@@ -2,6 +2,7 @@
 import {ArrowRightStartOnRectangleIcon} from "@heroicons/vue/24/outline";
 import {ref} from 'vue';
 import {getStats} from "~/middleware/getStats";
+import performLogout from "~/composables/user/performLogout";
 
 const stats = ref({username: '', balance: ''});
 
@@ -39,7 +40,7 @@ const stats = ref({username: '', balance: ''});
         </a>
       </div>
 
-      <arrow-right-start-on-rectangle-icon class="btn btn-secondary flex ml-4 w-16">
+      <arrow-right-start-on-rectangle-icon class="btn btn-secondary flex ml-4 w-16" @click="performLogout">
       </arrow-right-start-on-rectangle-icon>
     </div>
   </div>

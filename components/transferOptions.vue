@@ -1,24 +1,24 @@
 <template>
   <div class="flex flex-col w-full h-full justify-center justify-items-center">
-    <button type="button"
-            class="rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400">
+    <a href="/transfer"
+       class="block rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 text-center">
       Guthaben versenden
-    </button>
+    </a>
     <br>
-    <button type="button"
-            class="rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 mt-4">
+    <a href="/deposit"
+       class="block rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 text-center mt-4">
       Guthaben einzahlen
-    </button>
+    </a>
     <br>
-    <button type="button"
-            class="rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 mt-4">
+    <a href="/paypal"
+       class="block rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 text-center mt-4">
       Guthaben mit PayPal aufladen
-    </button>
+    </a>
     <br>
-    <button type="button"
-            class="rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 mt-4">
+    <a href="/transfer"
+       class="block rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 text-center mt-4">
       Transaktionen einsehen
-    </button>
+    </a>
   </div>
 </template>
 <script setup lang="ts">

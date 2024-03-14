@@ -1,4 +1,5 @@
 import {ref} from 'vue';
+import {reloadNuxtApp} from "nuxt/app";
 
 export default function performLogin() {
     const email = ref('');
