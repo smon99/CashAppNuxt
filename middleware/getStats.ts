@@ -17,7 +17,7 @@ export async function getStats() {
         const data = await response.json();
 
         const username = data.username;
-        const balance = data.balance;
+        const balance = parseFloat(data.balance).toFixed(2);
 
         return {username, balance};
     } catch (error) {
