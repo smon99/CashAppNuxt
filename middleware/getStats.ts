@@ -1,22 +1,31 @@
-import {useState} from "nuxt/app";
+import {permanentAuth} from "~/middleware/permanentAuth";
+import {getToken} from "~/services/tokenUtils";
 
-export default async function getStats() {
-
-    const username = useState();
-    const balance = '';
-
-    const requestOptions = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            username: username,
-            balance: balance,
-        }),
-    };
+export async function getStats() {
+    const token = getToken();
 
     try {
-        const response = await fetch('http://localhost:8000', requestOptions);
-    } catch (error) {
+        const response = await fetch('http://localhost:8000/', {
+            method: 'POST',
+            headers: {
+                'Authorization': token,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        });
 
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+        const data = await response.json();
+
+        const username = data.username;
+        const balance = data.balance;
+
+        return {username, balance};
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+        throw error;
     }
 }

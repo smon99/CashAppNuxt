@@ -1,14 +1,25 @@
 <script setup lang="ts">
 import {ArrowRightStartOnRectangleIcon} from "@heroicons/vue/24/outline";
-import getStats from "~/middleware/getStats";
+import {ref} from 'vue';
+import {getStats} from "~/middleware/getStats";
 
-const {username, balance} = getStats();
+const stats = ref({username: '', balance: ''});
+
+(async () => {
+  try {
+    const {username, balance} = await getStats();
+    stats.value.username = username;
+    stats.value.balance = balance;
+  } catch (error) {
+    console.error('Error fetching stats:', error);
+  }
+})();
 </script>
 
 <template>
   <div class="flex">
     <div class="flex items-center mr-8">
-      Guthaben: {{ balance }}€
+      Guthaben: {{ stats.balance }}€
     </div>
 
     <div class="flex justify-center ml-4">
@@ -21,7 +32,7 @@ const {username, balance} = getStats();
                    alt=""/>
             </div>
             <div class="ml-3">
-              <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">{{ username }}</p>
+              <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">{{ stats.username }}</p>
               <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
             </div>
           </div>

@@ -1,26 +1,28 @@
-import {useState, useCookie} from 'nuxt/app';
+import {getToken} from "~/services/tokenUtils";
 
-export default defineNuxtRouteMiddleware(async (to, from) => {
-    const userState = useState('user', () => null);
-    const accessToken = useCookie('token').value;
+export async function permanentAuth() {
+    const token = getToken();
 
-    if (!accessToken) {
-        console.error('Access token not provided');
-        return;
+    try {
+        if (!token) {
+            throw new Error('No token found');
+        }
+
+        const response = await fetch('http://localhost:8000/api/check-token', {
+            method: 'POST',
+            headers: {
+                'Authorization': token,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+        const data = await response.json();
+        console.log('Data:', data);
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
     }
-
-    const response = await fetch('http://localhost:8000/api/check-token', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': accessToken,
-        },
-    });
-
-    const data = await response.json();
-    if (data.valid) {
-        userState.value = data.user;
-    } else {
-        console.error('Token is invalid');
-    }
-});
+}
