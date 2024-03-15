@@ -5,11 +5,15 @@ permanentAuth();
 </script>
 
 <template>
-  <div class="w-full h-full grid grid-cols-2 justify-items-start items-end">
 
-    <div class="w-full h-7/8 mb-2.5">
-      <logo-box>
+
+  <div class="w-full h-full grid grid-cols-2 justify-items-start items-end">
+    <div class="w-full h-full flex flex-col justify-between items-start">
+      <logo-box class="mt-4 mr-2">
       </logo-box>
+
+      <logo-cloud class="mb-4">
+      </logo-cloud>
     </div>
 
     <div class="w-full h-full">
@@ -18,12 +22,12 @@ permanentAuth();
         </user-card>
       </div>
 
-      <div class="w-full mt-24">
+      <div class="w-full mt-20">
         <transaction-log>
         </transaction-log>
       </div>
 
-      <div class="w-full h-1/2 mt-12">
+      <div class="w-full h-1/2 mt-16">
         <transfer-options>
         </transfer-options>
       </div>
