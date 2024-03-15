@@ -15,7 +15,7 @@
       Guthaben mit PayPal aufladen
     </a>
     <br>
-    <a href="/transfer"
+    <a href="/history"
        class="block rounded-3xl bg-[#38b6ff] px-3.5 py-6 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 text-center mt-4">
       Transaktionen einsehen
     </a>

@@ -1,67 +1,47 @@
+<script setup lang="ts">
+import {defineAsyncComponent, ref} from 'vue';
+import {getTransactions} from "~/middleware/getTransactions";
+import {onMounted} from 'vue';
+import DefaultHeader from "~/components/headers/defaultHeader.vue";
+import {CurrencyEuroIcon} from "@heroicons/vue/24/outline";
+
+const transactions = ref([]);
+
+onMounted(async () => {
+  const {transactions: fetchedTransactions} = await getTransactions();
+  transactions.value = fetchedTransactions.slice(0, 3); // Get the first 3 transactions
+});
+
+definePageMeta({
+  layout: 'history'
+});
+</script>
+
 <template>
-  <div class="flex w-full h-full flex-col justify-center">
-    <ul role="list" class="-mb-8">
-      <li v-for="(event, eventIdx) in timeline" :key="event.id">
-        <div class="relative pb-8 ml-4 mb-4">
-          <span v-if="eventIdx !== timeline.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-gray-200"
-                aria-hidden="true"/>
-          <div class="relative flex space-x-3">
-            <div>
-              <span
-                  :class="[event.iconBackground, 'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white']">
-                <component :is="event.icon" class="h-5 w-5 text-white" aria-hidden="true"/>
-              </span>
+
+
+  <div class="flex justify-center mt-4">
+    <div class="w-2/3">
+      <div v-if="transactions.length > 0">
+        <ul role="list" class="divide-y divide-gray-100">
+          <li v-for="transaction in transactions" :key="transaction.transactionID" class="py-4">
+            <div class="flex items-center gap-x-3">
+              <CurrencyEuroIcon class="h-6 w-6 flex-none text-gray-800"/>
+              <h3 class="flex-auto truncate text-sm font-semibold leading-6 text-gray-900">Transaction ID:
+                {{ transaction.transactionID }}</h3>
+              <time :datetime="transaction.createdAt.date" class="flex-none text-xs text-gray-500">
+                {{ transaction.createdAt.date }}
+              </time>
             </div>
-            <div class="flex min-w-0 flex-1 space-x-4 pt-1.5">
-              <div>
-                <p class="text-sm text-gray-500 ">
-                  {{ event.content }} <a :href="event.href" class="font-medium text-gray-900">{{ event.target }}</a>
-                </p>
-              </div>
-              <div class="whitespace-nowrap text-right text-sm text-gray-500">
-                <time :datetime="event.datetime">{{ event.date }}</time>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
+            <p class="mt-3 truncate text-sm text-gray-500">
+              Value: {{ transaction.value.toFixed(2) }} | Purpose: {{ transaction.purpose }}
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div v-else>
+        <p class="text-center">No transactions available</p>
+      </div>
+    </div>
   </div>
 </template>
-
-<script setup>
-import {CheckIcon, HandThumbUpIcon, UserIcon} from '@heroicons/vue/20/solid'
-
-const timeline = [
-  {
-    id: 1,
-    content: '15€ received from',
-    target: 'Simon',
-    href: '#',
-    date: 'Sep 20',
-    datetime: '2020-09-20',
-    icon: UserIcon,
-    iconBackground: 'bg-gray-400',
-  },
-  {
-    id: 2,
-    content: 'Advanced to phone screening by',
-    target: 'Bethany Blake',
-    href: '#',
-    date: 'Sep 22',
-    datetime: '2020-09-22',
-    icon: HandThumbUpIcon,
-    iconBackground: 'bg-blue-500',
-  },
-  {
-    id: 3,
-    content: 'Completed phone screening with',
-    target: 'Martha Gardner',
-    href: '#',
-    date: 'Sep 28',
-    datetime: '2020-09-28',
-    icon: CheckIcon,
-    iconBackground: 'bg-green-500',
-  },
-]
-</script>

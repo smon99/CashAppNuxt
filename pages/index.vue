@@ -18,17 +18,12 @@ permanentAuth();
         </user-card>
       </div>
 
-      <div class="w-full mt-20">
+      <div class="w-full mt-24">
         <transaction-log>
         </transaction-log>
       </div>
 
-      <div class="flex justify-start mt-16">
-        <contacts-preview>
-        </contacts-preview>
-      </div>
-
-      <div class="w-full h-1/2 mt-4">
+      <div class="w-full h-1/2 mt-12">
         <transfer-options>
         </transfer-options>
       </div>
