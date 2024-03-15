@@ -2,8 +2,8 @@
 
 </script>
 <template>
-  <div class="flex ml-4">
+  <div class="w-full h-[30rem] rounded-3xl overflow-hidden">
     <!-- Logo is WIP still -->
-    <img src="/./assets/B.png" alt="Logo" class="rounded-3xl">
+    <img src="/./assets/B.png" alt="Logo" class="object-cover object-center w-full h-full">
   </div>
 </template>
