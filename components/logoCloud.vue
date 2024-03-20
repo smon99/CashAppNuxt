@@ -1,6 +1,6 @@
 <template>
   <div class="py-24 sm:py-12">
-    <div class="mx-auto max-w-7xl px-8 lg:px-2">
+    <div class="mx-auto max-w-7xl px-8 lg:px-0">
       <div class="-mx-6 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3">
         <div class="bg-gray-800/5 p-6 sm:p-10">
           <!-- PayPal Logo -->

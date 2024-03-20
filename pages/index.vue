@@ -27,7 +27,7 @@ permanentAuth();
         </transaction-log>
       </div>
 
-      <div class="w-full h-1/2 mt-16">
+      <div class="w-full h-1/2 mt-20">
         <transfer-options>
         </transfer-options>
       </div>
